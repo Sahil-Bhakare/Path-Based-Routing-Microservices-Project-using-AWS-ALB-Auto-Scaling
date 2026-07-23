@@ -54,6 +54,35 @@ One template for each service.
 - Home
 - Cloths
 - Laptops
+- 
+also add following lines in users additional information while launching the templates
+
+- Home
+#!/bin/bash
+apt update -y
+apt install nginx -y
+echo "<h1> welcome to home page </h1>" > /var/www/html/index.html
+systemctl start nginx
+systemctl enable nginx
+
+-Cloths
+#!/bin/bash
+apt update -y
+apt install nginx -y
+mkdir -p /var/www/html/cloths
+echo "<h1> 50 % discount on mens wear </h1>" > /var/www/html/cloths/index.html
+systemctl start nginx
+systemctl enable nginx
+
+-laptop
+#!/bin/bash
+apt update -y
+apt install nginx -y
+mkdir -p /var/www/html/laptop
+echo "<h1> 5% discount on laptops </h1>" > /var/www/html/laptop/index.html
+systemctl start nginx
+systemctl enable nginx
+
 
 ---
 
